@@ -1,29 +1,34 @@
 import React from 'react';
 import axios from 'axios';
 
-class GridManhua extends React.Component {
+class InputChapter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id = '',
-            chpater = 0
-        };
+            id: '',
+            chapter: 0,
+        };                
         this.handleChapterChange = this.handleChapterChange.bind(this);
     }
 
     handleChapterChange(event) {        
-        let chapter = event.target.value;
-
-        axios.put('https://localhost:44348/api/manhua/UpdateChapter', {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then((response) => {
-            console.log(response.data);
-            this.setState({ manhuas: response.data });
-        }).catch((error) => {
-            console.log(error);
-        });
+        let  id = this.props.id;
+        let chapter = event.target.value;                
+        axios.post('https://localhost:44348/api/manhua/updateChapter',
+            {
+                id: id,
+                chapter: chapter
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((response) => {
+                console.log(response.data);
+                this.setState({ manhuas: response.data });
+            }).catch((error) => {
+                console.log(error);
+            });
 
     }
 
@@ -34,4 +39,4 @@ class GridManhua extends React.Component {
     }
 }
 
-export default GridManhua
+export default InputChapter

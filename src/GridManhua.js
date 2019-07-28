@@ -1,17 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import InputChapter from './InputChapter.js';
 
 class GridManhua extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            manhuas: []
+            manhuas: [],
         };
         this.getAllManhua();
-    }
-
-    handleChapterChange(id, actualValue){
-
     }
 
     getAllManhua() {
@@ -43,7 +40,7 @@ class GridManhua extends React.Component {
                                 this.state.manhuas.map(manhua =>
                                     <tr key={manhua.id}>
                                         <td>{manhua.name}</td>
-                                        <td><input type="number" value={manhua.chapter} onChange={this.handleChapterChange} /></td>
+                                        <td><InputChapter id={manhua.id} chapter={manhua.chapter}/></td>
                                     </tr>) :
                                 null
                         }
