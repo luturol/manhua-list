@@ -12,8 +12,7 @@ class App extends React.Component {
 
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleChapterChange = this.handleChapterChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        
+        this.handleSubmit = this.handleSubmit.bind(this);        
     }
 
     handleNameChange(event) {
