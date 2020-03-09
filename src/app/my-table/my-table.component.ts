@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export interface MyTableElement {
   name: string;
@@ -23,8 +23,9 @@ export class MyTableComponent implements OnInit {
   MyList: FormGroup
   constructor(formBuilder: FormBuilder) {
     this.MyList = formBuilder.group({
-      color: this.colorControl
-    })
+      color: this.colorControl,
+      chapter:  [null, Validators.required]
+    });
    }
 
   ngOnInit() {
