@@ -20,7 +20,7 @@ export class MyTableComponent implements OnInit {
     { name: 'Solo Leveling', score: 8, chapter: 31 }
   ];
   colorControl = new FormControl('primary');
-  MyList: FormGroup
+  MyList: FormGroup;
   constructor(formBuilder: FormBuilder) {
     this.MyList = formBuilder.group({
       color: this.colorControl,
