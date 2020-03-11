@@ -1,0 +1,33 @@
+.container {
+    background: rgba(255, 255, 255, 0.01);
+    border: 0.5px solid rgba(255, 255, 255, 0.03);
+    width: 20%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.container-master{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container-inputs {
+    margin: 0 auto;
+}
+mat-form-field  button {
+    border: 1px transparent;
+    background-color: transparent;
+    color: white;   
+}
+
+::ng-deep .mat-form-field-suffix {
+    position: absolute !important;
+    right: -5px !important;
+    top: 16px !important;
+}

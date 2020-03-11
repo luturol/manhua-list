@@ -1,0 +1,37 @@
+<div class="container-master">
+    <div class="container">
+        <h1>Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="container-inputs">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Enter your email</mat-label>
+                            <input class="email-field" matInput placeholder="pat@example.com" [formControl]="email">
+                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-8">
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-8">
+                        <button mat-flat-button color="primary" type="submit">Primary</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
