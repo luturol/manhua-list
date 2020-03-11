@@ -31,3 +31,14 @@ mat-form-field  button {
     right: -5px !important;
     top: 16px !important;
 }
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 85%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    
+  }
