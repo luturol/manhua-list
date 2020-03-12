@@ -11,13 +11,19 @@ import { MatInputModule } from '@angular/material/input'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { NotificationComponent } from './notification/notification.component'; 
+import {MatDialogModule} from '@angular/material/dialog';
+import { AppRoutinModule } from './app-routin.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MyTableComponent
+    MyTableComponent,    
+    NotificationComponent, 
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +35,12 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    AppRoutinModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NotificationComponent]
 })
 export class AppModule { }
