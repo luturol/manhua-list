@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from "@angular/router";
+import { AuthGuardService } from './guards/auth-guard.service';
 
-const appRoutes: Routes = [
+const appRoutes: Routes = [  
   { path: 'login', component: LoginComponent},
-  { path: 'home', component: HomeComponent}
+  { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService]}  
 ];
 
 @NgModule({
@@ -14,6 +16,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule, RouterModule.forRoot(appRoutes, { useHash: true })
   ],
+  providers:[AuthGuardService],
   exports: [RouterModule]
 })
 export class AppRoutinModule { }
