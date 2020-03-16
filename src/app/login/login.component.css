@@ -55,11 +55,20 @@ a .forgot-password :hover{
     margin: 0px 20px 0px 0px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .container {
         width: 100%;
         text-align: center;
         margin: 0;
-        padding: 0;
+        padding: 5%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        padding: 5%;
     }
 }
