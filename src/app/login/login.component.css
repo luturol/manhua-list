@@ -1,10 +1,11 @@
 .container {
     background: rgba(255, 255, 255, 0.01);
     border: 0.5px solid rgba(255, 255, 255, 0.03);
-    width: 22%;
+    width: 30%;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    
 }
 
 .container-master{
@@ -32,14 +33,19 @@ mat-form-field  button {
     top: 16px !important;
 }
 
+::ng-deep .mat-tab-body-content {
+    overflow: unset !important;
+}
+
 .forgot-password {
     margin: 0;
     padding: 0 0 0 25%;
     font-size: 10px;
     text-align: center;
     display: flex;
-    margin-left: 60px;
+    margin-left: 95px;
     margin-bottom: 20px;
+    margin-top: 20px;
     position: relative;
     bottom: 12px;
 }

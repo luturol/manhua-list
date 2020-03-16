@@ -16,6 +16,7 @@ import { NotificationComponent } from './notification/notification.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutinModule } from './app-routin.module';
 import { HomeComponent } from './home/home.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HomeComponent } from './home/home.component';
     MatButtonModule,
     HttpClientModule,
     MatDialogModule,
-    AppRoutinModule
+    AppRoutinModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
