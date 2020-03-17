@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   hide = true;
+  loading: boolean = false;
 
   loginForm: FormGroup;
   email = new FormControl(null, [Validators.required, Validators.email]);
@@ -40,10 +41,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  getErrorMessage() {
-
-  }
-
   onSubmit() {
     let username = this.loginForm.controls.email.value;
     let password = this.loginForm.controls.password.value;
@@ -67,14 +64,17 @@ export class LoginComponent implements OnInit {
     let email = this.signForm.controls.signEmail.value;
     let password = this.signForm.controls.signPassword.value;
 
+    this.loading = true;
     this.loginService.addUser(username, password, email).subscribe(res => {
-      if (res.msg) {
+      this.loading = false;
+      if (res.msg) {        
         this.openDialog({ message: res.msg, title: "We're glad to have you here." }).subscribe(res => {
           this.login(username, password, false);
         });
       }
     },
       err => {
+        this.loading = false;
         if (err.error) {
           this.openDialog({ message: err.error.msg, title: "Sorry, an error has occurred :(", error: true }).subscribe(res => { });
         }
@@ -82,11 +82,13 @@ export class LoginComponent implements OnInit {
   }
 
   private login(username: string, password: string, showDialog: boolean) {
+    this.loading = true;
     this.loginService.login(username, password).subscribe(res => {
       if (res.token && res.msg) {
         localStorage.setItem('token', res.token);
         localStorage.setItem('expiration_date', res.expiration_date);
-        if (showDialog) {
+        this.loading = false;
+        if (showDialog) {          
           this.openDialog({ message: res.msg, title: 'Welcome to My Manhua List!' }).subscribe(res => {
             this.router.navigate(['/home']);
           });
@@ -95,8 +97,12 @@ export class LoginComponent implements OnInit {
       }
     },
       err => {
-        this.openDialog({ message: err.error.msg, title: "Sorry, but an error has occured." }).subscribe(res => {
-        });
+        this.loading = false;
+        this.openDialog({
+          message: err.error.msg,
+          title: "Sorry, but an error has occured.",
+          error: true
+        }).subscribe(res => { });
       });
   }
 }

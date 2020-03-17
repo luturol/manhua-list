@@ -20,6 +20,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     LoginComponent,
     MyTableComponent,    
     NotificationComponent, 
-    HomeComponent
+    HomeComponent, SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     AppRoutinModule,
     MatTabsModule,
     FontAwesomeModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

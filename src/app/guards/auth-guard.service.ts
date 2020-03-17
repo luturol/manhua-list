@@ -13,11 +13,15 @@ export class AuthGuardService implements CanActivate {
     debugger;
     let token = localStorage.getItem('token');
     let expirationDate = localStorage.getItem('expiration_date');
+    
     if(token && expirationDate && moment(expirationDate, 'DD/MM/YYYY HH:mm:SS') > moment()){
       return true;
     }
     else{
+      localStorage.removeItem('token');
+      localStorage.removeItem('expiration_date');
       this.router.navigate(['/login']);
+
       return false;
     }
   }
