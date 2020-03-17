@@ -17,6 +17,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutinModule } from './app-routin.module';
 import { HomeComponent } from './home/home.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -39,10 +42,16 @@ import {MatTabsModule} from '@angular/material/tabs';
     HttpClientModule,
     MatDialogModule,
     AppRoutinModule,
-    MatTabsModule
+    MatTabsModule,
+    FontAwesomeModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [NotificationComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fab);
+  }
+ }
