@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -56,5 +57,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
 export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fab);
+    library.addIconPacks(fas);
   }
  }

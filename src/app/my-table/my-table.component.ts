@@ -29,9 +29,11 @@ export class MyTableComponent implements OnInit {
       chapter: [null, Validators.required]
     });
 
-    this.mangasService.getMangas().subscribe(resp => {
-      debugger;
+    this.mangasService.getMangas().subscribe(resp => {      
       this.dataSource = resp.mangas;
+    },
+    err => {
+      console.log(err);
     });
   }
 
