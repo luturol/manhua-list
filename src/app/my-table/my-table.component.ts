@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MangasService } from '../mangas.service';
 
 export interface MyTableElement {
   name: string;
@@ -21,12 +22,20 @@ export class MyTableComponent implements OnInit {
   ];
   colorControl = new FormControl('primary');
   MyList: FormGroup;
-  constructor(formBuilder: FormBuilder) {
+
+  constructor(formBuilder: FormBuilder, public mangasService: MangasService) {
     this.MyList = formBuilder.group({
       color: this.colorControl,
-      chapter:  [null, Validators.required]
+      chapter: [null, Validators.required]
     });
-   }
+
+    this.mangasService.getMangas().subscribe(resp => {      
+      this.dataSource = resp.mangas;
+    },
+    err => {
+      console.log(err);
+    });
+  }
 
   ngOnInit() {
   }

@@ -16,6 +16,13 @@ import { NotificationComponent } from './notification/notification.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutinModule } from './app-routin.module';
 import { HomeComponent } from './home/home.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +30,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     MyTableComponent,    
     NotificationComponent, 
-    HomeComponent
+    HomeComponent, SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +44,19 @@ import { HomeComponent } from './home/home.component';
     MatButtonModule,
     HttpClientModule,
     MatDialogModule,
-    AppRoutinModule
+    AppRoutinModule,
+    MatTabsModule,
+    FontAwesomeModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [NotificationComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fab);
+    library.addIconPacks(fas);
+  }
+ }

@@ -1,8 +1,8 @@
 <div class="notification">
-    <h1 mat-dialog-title>Welcome to My Manhua List!!</h1>
+    <h1 mat-dialog-title>{{ data.title }}</h1>
     <div mat-dialog-content>
-        <p>{{data.message}}</p>
+        <p>{{ data.message }}</p>
     </div>
 
-    <button mat-flat-button color="primary" (click)="onClose()" cdkFocusInitial>NICE</button>
+    <button mat-flat-button color="primary" (click)="onClose()" cdkFocusInitial>{{ buttonText }}</button>
 </div>

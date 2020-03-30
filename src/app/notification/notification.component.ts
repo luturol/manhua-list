@@ -8,7 +8,11 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class NotificationComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<NotificationComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  buttonText: string = "NICE";
+
+  constructor(public dialogRef: MatDialogRef<NotificationComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { 
+    this.buttonText = data.error ? "That's bad" : "NICE";
+  }
 
   ngOnInit() {
   }
