@@ -16,4 +16,16 @@ export class MangasService {
 
     return this.http.get(url, { headers: header });
   }
+
+  public addManhua(manhua: any): Observable<any>{
+    let url = environment.apiEndpoint + 'addmanga';
+    let header = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')});    
+    let body = {
+      name: manhua.name,
+      chapter: manhua.chapter,
+      state: manhua.state
+    };
+
+    return this.http.post(url, body, { headers: header });
+  }
 }

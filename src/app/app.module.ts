@@ -23,6 +23,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { CreateMangaComponent } from './create-manga/create-manga.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
     LoginComponent,
     MyTableComponent,    
     NotificationComponent, 
-    HomeComponent, SpinnerComponent
+    HomeComponent, 
+    SpinnerComponent, 
+    CreateMangaComponent
   ],
   imports: [
     BrowserModule,
@@ -48,11 +52,12 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatTabsModule,
     FontAwesomeModule,
     MatToolbarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [NotificationComponent]
+  entryComponents: [NotificationComponent, CreateMangaComponent]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {

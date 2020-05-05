@@ -16,10 +16,7 @@ export interface MyTableElement {
 export class MyTableComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'score', 'chapter'];
-  dataSource: MyTableElement[] = [
-    { name: 'Tales of demons and Gods', score: 10, chapter: 245 },
-    { name: 'Solo Leveling', score: 8, chapter: 31 }
-  ];
+  dataSource: MyTableElement[];
   colorControl = new FormControl('primary');
   MyList: FormGroup;
 

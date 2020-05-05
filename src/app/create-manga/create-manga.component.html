@@ -1,0 +1,43 @@
+<div mat-dialog-content class="center">
+    <form [formGroup]="createManhua" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-12">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Manhua</mat-label>
+                    <input matInput placeholder="Ex. One Piece" [formControl]="manhuaName">
+                    <mat-error *ngIf="createManhua.controls.manhuaName.hasError('required')">Manhua name is
+                        <strong>required</strong></mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <mat-form-field>
+                    <mat-label>Enter your actual chapter</mat-label>
+                    <input matInput type="number" [value]="0" [formControl]="manhuaChapter">
+                    <mat-error *ngIf="createManhua.controls.manhuaChapter.hasError('required')">Chapter is
+                        <strong>required</strong></mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <mat-form-field appearance="legacy">
+                    <mat-label>State</mat-label>
+                    <mat-select [formControl]="manhuaState">
+                        <mat-option *ngFor="let state of states" [value]="state.value">
+                            {{state.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="createManhua.controls.manhuaState.hasError('required')">State is
+                        <strong>required</strong></mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button mat-button (click)="close(null)">No Thanks</button>
+            <button mat-flat-button color="primary" type="submit"  [disabled]="!createManhua.valid">Add Manhua</button>
+        </div>
+    </form>
+</div>
