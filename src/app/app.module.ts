@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NotificationComponent } from './notification/notification.component'; 
 import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutinModule } from './app-routin.module';
@@ -25,6 +25,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { CreateMangaComponent } from './create-manga/create-manga.component';
 import {MatSelectModule} from '@angular/material/select';
+import { Http500 } from './helpers/http-500';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,12 @@ import {MatSelectModule} from '@angular/material/select';
     MatProgressSpinnerModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [ Http500,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Http500,
+      multi: true,
+    }],
   bootstrap: [AppComponent],
   entryComponents: [NotificationComponent, CreateMangaComponent]
 })

@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
       }
     },
       err => {
-        this.loading = false;
+        this.loading = false;        
         if (err.error) {
           this.openDialog({ message: err.error.msg, title: "Sorry, an error has occurred :(", error: true }).subscribe(res => { });
         }
@@ -97,9 +97,9 @@ export class LoginComponent implements OnInit {
       }
     },
       err => {
-        this.loading = false;
+        this.loading = false;        
         this.openDialog({
-          message: err.error.msg,
+          message: !err.error ? "" : err.error.msg,
           title: "Sorry, but an error has occured.",
           error: true
         }).subscribe(res => { });
